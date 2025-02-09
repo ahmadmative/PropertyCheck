@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import WarningIcon from '@mui/icons-material/Warning';
-import sidebarImage from '../../assets/inspection/InspectionSidebarImage.png';
+import sidebarImage from '../../assets/Inspection/InspectionSidebarImage.png';
 import bedroomIcon from '../../assets/Inspection/bedroom.png';
 import renovationIcon from '../../assets/Inspection/renovation.png';
 import apartmentIcon from '../../assets/Inspection/apartment.png';
