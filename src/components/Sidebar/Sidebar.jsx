@@ -37,7 +37,7 @@ const Sidebar = () => {
         display: 'flex', 
         justifyContent: 'flex-end', 
         p: 2,
-        display: { sm: 'none' } 
+        display: { xs: 'flex', sm: 'none' } 
       }}>
         <IconButton
           onClick={handleDrawerToggle}

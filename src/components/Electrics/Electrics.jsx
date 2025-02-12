@@ -77,13 +77,13 @@ const Electrics = () => {
         <Button 
           sx={{ 
             backgroundColor: '#0F0F0F',
-            color: 'white',
             textTransform: 'none',
             borderRadius: 2,
             border: '1px solid white',
             px: 2,
             py: 1,
-            '&:hover': { backgroundColor: '#2E2E2E' }
+            '&:hover': { backgroundColor: '#2E2E2E' },
+            color: '#ffffff'
           }}
         >
           All (999)
@@ -99,13 +99,13 @@ const Electrics = () => {
           }
           sx={{ 
             backgroundColor: '#1E1E1E',
-            color: '#ff4444',
             textTransform: 'none',
             borderRadius: 2,
             px: 2,
             py: 1,
             border: '1px solid #ff4444',
-            '&:hover': { backgroundColor: '#2E2E2E' }
+            '&:hover': { backgroundColor: '#2E2E2E' },
+            color: '#ff4444',
           }}
         >
           High Priority (999)
@@ -121,13 +121,13 @@ const Electrics = () => {
           }
           sx={{ 
             backgroundColor: '#1E1E1E',
-            color: 'white',
             textTransform: 'none',
             borderRadius: 2,
             px: 2,
             py: 1,
             border: '1px solid #4CAF50',
-            '&:hover': { backgroundColor: '#2E2E2E' }
+            '&:hover': { backgroundColor: '#2E2E2E' },
+            color: '#ffffff',
           }}
         >
           Passed (999)
@@ -143,13 +143,13 @@ const Electrics = () => {
           }
           sx={{ 
             backgroundColor: '#1E1E1E',
-            color: 'white',
             textTransform: 'none',
             borderRadius: 2,
             px: 2,
             py: 1,
             border: '1px solid #ff4444',
-            '&:hover': { backgroundColor: '#2E2E2E' }
+            '&:hover': { backgroundColor: '#2E2E2E' },
+            color: '#ffffff',
           }}
         >
           Failed (999)
@@ -165,13 +165,13 @@ const Electrics = () => {
           }
           sx={{ 
             backgroundColor: '#1E1E1E',
-            color: 'white',
             textTransform: 'none',
             borderRadius: 2,
             px: 2,
             py: 1,
             border: '1px solid #ff9800',
-            '&:hover': { backgroundColor: '#2E2E2E' }
+            '&:hover': { backgroundColor: '#2E2E2E' },
+            color: '#ffffff',
           }}
         >
           At Risk (999)
@@ -181,14 +181,13 @@ const Electrics = () => {
           sx={{ 
             backgroundColor: '#383838',
             border: '1px solid #4F4F4F',
-            color: 'white',
             textTransform: 'none',
             borderRadius: 100,
             px: 2,
             py: 1,
             ml: 'auto',
             '&:hover': { backgroundColor: '#2E2E2E' },
-            color: '#B7B7B7'
+            color: '#ffffff'
           }}
         >
           Sub-Category
@@ -198,13 +197,12 @@ const Electrics = () => {
           sx={{ 
             backgroundColor: '#383838',
             border: '1px solid #4F4F4F',
-            color: 'white',
             textTransform: 'none',
             borderRadius: 100,
             px: 2,
             py: 1,
             '&:hover': { backgroundColor: '#2E2E2E' },
-            color: '#B7B7B7'
+            color: '#ffffff'
           }}
         >
           Filter By Room
