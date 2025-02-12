@@ -4,7 +4,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import thingsToRememberImage from '../../assets/ThingsToRemember/ThingsToRemember1.png';
 import thingsToRememberImage2 from '../../assets/ThingsToRemember/ThingsToRemember2.png';
 import thingsToRememberImage3 from '../../assets/ThingsToRemember/ThingsToRemember3.png';
-import checkIcon from '../../assets/ThingsToRemember/check.png';
+import checkIcon from '../../assets/ThingsToRemember/Check.png';
 
 // Dummy data for the boxes
 const stepOneBoxes = [

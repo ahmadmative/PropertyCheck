@@ -34,7 +34,6 @@ const Sidebar = () => {
       }}
     >
       <Box sx={{ 
-        display: 'flex', 
         justifyContent: 'flex-end', 
         p: 2,
         display: { xs: 'flex', sm: 'none' } 
