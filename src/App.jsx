@@ -8,8 +8,12 @@ import PropertyCheck from './components/PropertyCheck/PropertyCheck';
 import ThingsToRemember from './components/ThingsToRemember/ThingsToRemember';
 import InspectionOverview from './components/InspectionOverview/InspectionOverview';
 import Electrics from './components/Electrics/Electrics';
+import './assets/fonts/fonts.css';
 
 const darkTheme = createTheme({
+  typography: {
+    fontFamily: 'Gotham Book, sans-serif',
+  },
   palette: {
     mode: 'dark',
     background: {

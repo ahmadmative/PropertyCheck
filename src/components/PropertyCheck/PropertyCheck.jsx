@@ -7,16 +7,21 @@ import {
   Grid,
   Chip
 } from '@mui/material';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import ErrorIcon from '@mui/icons-material/Error';
-import WarningIcon from '@mui/icons-material/Warning';
 import propertyCheckImage from '../../assets/PropertyCheck/PropertyCheck.png';
+import futureProofingImage from '../../assets/PropertyCheck/futureProofing.png';
+import starIcon from '../../assets/PropertyCheck/star.png';
+import passedIcon from '../../assets/PropertyCheck/passed.png';
+import highRiskIcon from '../../assets/PropertyCheck/failed.png';
+import failedIcon from '../../assets/PropertyCheck/highPriority.png';
+import atRiskIcon from '../../assets/PropertyCheck/atRisk.png';
+import '../../assets/fonts/fonts.css';
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(3),
   margin: theme.spacing(2),
   backgroundColor: '#1E1E1E',
   color: 'white',
+  fontFamily: 'Gotham Book, sans-serif',
 }));
 
 const StatusChip = styled(Chip)(({ status }) => ({
@@ -31,46 +36,54 @@ const StatusChip = styled(Chip)(({ status }) => ({
   }
 }));
 
-// Dummy data for status sections
+// Update the status data
 const statusData = [
   {
     type: 'passed',
-    icon: <CheckCircleIcon />,
+    icon: passedIcon,
     label: 'Passed',
+    labelColor: '#009540', // Color for "Passed" text
+    textColor: '#ffffff', // Color for description text
     description: "It's been checked and is in full working order.",
     subText: "Just note, we only show passes for essential things like A/C ducts or the electrical panel (unless otherwise agreed)."
   },
   {
     type: 'failed',
-    icon: <ErrorIcon />,
+    icon: failedIcon,
     label: 'Failed',
+    labelColor: '#9B1C1C', // Color for "Failed" text
+    textColor: '#ffffff', // Color for description text
     description: "It's been checked and it's either not working, broken, not installed correctly, damaged or generally defective.",
     subText: "It's not perfect - which is the standard we abide by - so it can be rectified."
   },
   {
     type: 'high-priority',
-    icon: <ErrorIcon />,
+    icon: highRiskIcon,
     label: 'High Priority',
+    labelColor: '#F5F5F5', // Color for "High Priority" text
+    textColor: '#ffffff', // Color for description text
     description: "A High Priority Fail is an issue we recommend is rectified as a priority.",
     subText: "These are shown in both the Overview section and the chosen category (e.g. the same electrical High Priority Fail will appear in both Overview and Electrics)."
   },
   {
     type: 'at-risk',
-    icon: <WarningIcon />,
+    icon: atRiskIcon,
     label: 'At Risk',
+    labelColor: '#FF8800', // Color for "At Risk" text
+    textColor: '#ffffff', // Color for description text
     description: "It's working today, but we're not entirely happy with the installation, finishing or materials.",
     subText: ""
   }
 ];
 
-// Status Item Component
+// Update the StatusItem component
 const StatusItem = ({ data }) => {
   const getStatusColor = (type) => {
     switch(type) {
-      case 'passed': return '#4CAF50';
-      case 'failed': return '#f44336';
-      case 'high-priority': return '#f44336';
-      case 'at-risk': return '#ff9800';
+      case 'passed': return '#D6FFE7';
+      case 'failed': return '#FDE8E8';
+      case 'high-priority': return '#EF4444';
+      case 'at-risk': return '#FFDDB7';
       default: return '#4CAF50';
     }
   };
@@ -78,49 +91,74 @@ const StatusItem = ({ data }) => {
   return (
     <Box sx={{ 
       backgroundColor: '#1E1E1E',
-      p: 3,
+      p: { xs: 2, md: 3 },
       borderRadius: 1,
+      height: '100%',
       display: 'flex',
-      gap: 3,
-      minHeight: '140px',
+      flexDirection: { xs: 'column', md: 'row' },
+      alignItems: { xs: 'center', md: 'flex-start' },
+      gap: { xs: 2, md: 3 },
+      fontFamily: 'Gotham Book, sans-serif',
     }}>
       {/* Status Chip Container */}
       <Box sx={{ 
         backgroundColor: '#121212',
         borderRadius: 1,
-        width: '140px',
-        alignSelf: 'stretch',
+        width: { xs: '140px', md: '140px' },
+        minWidth: { xs: '140px', md: '140px' },
+        height: { xs: '65px', md: '140px' },
+        minHeight: { xs: '60px', md: '140px' },
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        flexShrink: 0,
       }}>
-        <Chip
-          icon={data.icon}
-          label={data.label}
-          sx={{
-            backgroundColor: getStatusColor(data.type),
-            color: 'white',
-            '& .MuiChip-icon': {
-              color: 'white'
-            },
-            borderRadius: '4px',
-            height: '32px',
-            '& .MuiChip-label': {
-              px: 1,
-              fontWeight: 'medium'
-            }
-          }}
-        />
+        <Box sx={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          gap: 1,
+          backgroundColor: getStatusColor(data.type),
+          padding: { xs: '4px 10px', md: '6px 12px' },
+          borderRadius: '4px',
+        }}>
+          <Box
+            component="img"
+            src={data.icon}
+            alt={`${data.label} icon`}
+            sx={{
+              width: { xs: 18, md: 20 },
+              height: { xs: 18, md: 20 },
+              objectFit: 'contain'
+            }}
+          />
+          <Typography
+            sx={{
+              color: data.labelColor,
+              fontWeight: 500,
+              fontSize: { xs: '0.8125rem', md: '0.875rem' },
+              fontFamily: 'Gotham Book, sans-serif',
+            }}
+          >
+            {data.label}
+          </Typography>
+        </Box>
       </Box>
 
       {/* Description Container */}
-      <Box sx={{ flex: 1 }}>
+      <Box sx={{ 
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        textAlign: { xs: 'center', md: 'left' },
+      }}>
         <Typography 
           sx={{ 
-            color: 'white',
-            fontSize: '1.1rem',
+            color: '#ffffff',
+            fontSize: { xs: '0.9375rem', md: '1rem' },
             lineHeight: 1.5,
-            mb: data.subText ? 2 : 0
+            mb: data.subText ? 2 : 0,
+            flex: 1,
+            fontFamily: 'Gotham Book, sans-serif',
           }}
         >
           {data.description}
@@ -129,9 +167,10 @@ const StatusItem = ({ data }) => {
           <Typography 
             variant="body2" 
             sx={{ 
-              color: '#888',
-              fontSize: '0.875rem',
-              lineHeight: 1.5
+              color: '#ffffff',
+              fontSize: { xs: '0.9375rem', md: '1rem' },
+              lineHeight: 1.5,
+              fontFamily: 'Gotham Book, sans-serif',
             }}
           >
             {data.subText}
@@ -149,7 +188,8 @@ const PropertyCheck = () => {
         flexGrow: 1,
         height: '100vh',
         overflow: 'auto', // Enable scrolling
-        backgroundColor: '#121212'
+        backgroundColor: '#121212',
+        fontFamily: 'Gotham Book, sans-serif',
       }}
     >
       <Box sx={{ p: 3 }}>  {/* Add padding container */}
@@ -162,7 +202,7 @@ const PropertyCheck = () => {
               sx={{ 
                 color: 'white',
                 fontWeight: 'bold',
-                fontSize: '2.5rem',
+                fontSize: '1.375rem',
                 mb: 3
               }}
             >
@@ -174,7 +214,7 @@ const PropertyCheck = () => {
               paragraph 
               sx={{ 
                 color: 'white',
-                fontSize: '1.1rem',
+                fontSize: '1rem',
                 lineHeight: 1.6,
                 mb: 2
               }}
@@ -187,7 +227,7 @@ const PropertyCheck = () => {
               paragraph
               sx={{ 
                 color: 'white',
-                fontSize: '1.1rem',
+                fontSize: '1rem',
                 lineHeight: 1.6,
                 mb: 2
               }}
@@ -199,7 +239,7 @@ const PropertyCheck = () => {
               variant="body1"
               sx={{ 
                 color: 'white',
-                fontSize: '1.1rem',
+                fontSize: '1rem',
                 lineHeight: 1.6
               }}
             >
@@ -231,7 +271,10 @@ const PropertyCheck = () => {
             mt: 6, 
             mb: 4, 
             color: 'white',
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            fontSize: '1.375rem',
+       
+
           }}
         >
           OUR PASS, FAIL AND AT RISK SYSTEM
@@ -244,6 +287,137 @@ const PropertyCheck = () => {
             </Grid>
           ))}
         </Grid>
+
+        {/* Add the Future-Proofing section after the status grid */}
+        <Box sx={{ p: 3, mt: 6 }}>
+          <Grid container spacing={4} alignItems="center">
+            {/* Left side - Image */}
+            <Grid item xs={12} md={4}>
+              <Box
+                component="img"
+                src={futureProofingImage}
+                alt="Future Proofing Illustration"
+                sx={{
+                  width: '100%',
+                  maxWidth: '298px',
+                  height: 'auto',
+                  display: 'block',
+                  margin: 'auto'
+                }}
+              />
+            </Grid>
+
+            {/* Right side - Content */}
+            <Grid item xs={12} md={8}>
+              <Typography 
+                variant="h4" 
+                sx={{ 
+                  color: 'white',
+                  fontWeight: 'bold',
+                  mb: 3,
+                  fontSize: '1.375rem',
+               
+                }}
+              
+              >
+                FUTURE-PROOFING
+              </Typography>
+
+              <Typography 
+                variant="body1" 
+                sx={{ 
+                  color: 'white',
+                  fontSize: '1rem',
+                  lineHeight: 1,
+                  mb: 2
+                }}
+              >
+                We don't just look at today - we look at the future, too.
+              </Typography>
+
+              <Typography 
+                variant="body1" 
+                sx={{ 
+                  color: 'white',
+                  fontSize: '1rem',
+                  lineHeight: 1,
+                  mb: 3
+                }}
+              >
+                If we don't think something will last three years (we think that's is a fair amount of time for something to last with little or no issues) then we'll flag it.
+              </Typography>
+
+              <Typography 
+                variant="body1" 
+                sx={{ 
+                  color: 'white',
+                  fontSize: '1rem',
+                  lineHeight: 1,
+                  mb: 4
+                }}
+              >
+                Just remember: we can't predict the future. It depends on usage and other variables.
+              </Typography>
+
+              {/* "If you can't see something" box */}
+              <Box sx={{ 
+                backgroundColor: '#1E1E1E',
+                borderRadius: 2,
+                p: 3,
+                display: 'flex',
+                gap: 3,
+                alignItems: 'center',
+              }}>
+                <Box
+                  component="img"
+                  src={starIcon}
+                  alt="Star Icon"
+                  sx={{
+                    width: 32,
+                    height: 32,
+                    flexShrink: 0,
+                  }}
+                />
+                <Box>
+                  <Typography 
+                    variant="h6" 
+                    sx={{ 
+                      color: 'white',
+                      fontWeight: 'bold',
+                      mb: 1,
+                      textTransform: 'uppercase',
+                      letterSpacing: '1.375px'
+                    }}
+                  >
+                    IF YOU CAN'T SEE SOMETHING, THAT'S GOOD!
+                  </Typography>
+                  <Typography 
+                    variant="body1" 
+                    sx={{ 
+                      color: 'white',
+                      fontSize: '1rem',
+                      lineHeight: 1.6,
+                      mb: 2
+                    }}
+                  >
+                    If something isn't in here, it doesn't mean it's not been looked at, quite the opposite. It means it's been checked (unless otherwise agreed) for every possible issue and is good to go.
+                  </Typography>
+                  <Typography 
+                    variant="body1" 
+                    sx={{ 
+                      color: 'white',
+                      fontSize: '1rem',
+                      lineHeight: 1.6
+                    }}
+                  >
+                    Put it this way: an emptier Property Report Card is a better Property Report Card.
+                  </Typography>
+                </Box>
+              </Box>
+
+            </Grid>
+          </Grid>
+        </Box>
       </Box>
     </Box>
   );

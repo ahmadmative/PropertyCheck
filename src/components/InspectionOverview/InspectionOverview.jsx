@@ -1,24 +1,30 @@
 import React from 'react';
-import { Box, Typography, Grid } from '@mui/material';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { Box, Typography, Grid, Button } from '@mui/material';
 import WarningIcon from '@mui/icons-material/Warning';
 import sidebarImage from '../../assets/Inspection/InspectionSidebarImage.png';
 import bedroomIcon from '../../assets/Inspection/bedroom.png';
 import renovationIcon from '../../assets/Inspection/renovation.png';
 import apartmentIcon from '../../assets/Inspection/apartment.png';
+import cautionIcon from '../../assets/Inspection/cautionIcon.png';
+import checkIcon from '../../assets/Inspection/checkIcon.png';
+import starIcon from '../../assets/Inspection/starIcon.png';
+import ElectricIssueCard from '../Electrics/ElectricIssueCard';
+import electricImage from '../../assets/Electrics/ElectricImage1.png';
 
 const InspectionOverview = () => {
   return (
     <Box sx={{ 
       flexGrow: 1, 
-      backgroundColor: '#121212',
+      backgroundColor: '#1D1D1B',
       minHeight: '100vh',
-      p: 3
+      p: 3,
+      position: 'relative',
+      pb: '140px',
     }}>
       <Grid container spacing={3}>
         {/* Left Content Section */}
         <Grid item xs={12} md={8}>
-          <Typography variant="h4" sx={{ color: 'white', mb: 2, fontWeight: 'bold' }}>
+          <Typography variant="h6" sx={{ color: 'white', mb: 2, fontWeight: 'bold' }}>
             INSPECTION OVERVIEW
           </Typography>
           
@@ -33,7 +39,7 @@ const InspectionOverview = () => {
           {/* Statistics Boxes - Updated Layout */}
           <Box sx={{ display: 'flex', gap: 4, mb: 4 }}>
             <Box sx={{ 
-              backgroundColor: '#1E1E1E',
+              backgroundColor: '#242424',
               p: 4,
               borderRadius: 2,
               flex: 1,
@@ -56,7 +62,12 @@ const InspectionOverview = () => {
                 <Typography variant="h2" sx={{ color: 'white', fontWeight: 'bold' }}>
                   79
                 </Typography>
-                <WarningIcon sx={{ color: 'white', fontSize: '2rem' }} />
+                <Box
+                  component="img"
+                  src={cautionIcon}
+                  alt="Caution"
+                  sx={{ width: '2rem', height: '2rem' }}
+                />
               </Box>
               <Typography sx={{ color: 'white' }}>High Priority Issues</Typography>
             </Box>
@@ -120,7 +131,7 @@ const InspectionOverview = () => {
         {/* Right Sidebar */}
         <Grid item xs={12} md={4}>
           <Box sx={{ 
-            backgroundColor: '#1E1E1E',
+            backgroundColor: '#0F0F0F',
             borderRadius: 2,
             overflow: 'hidden'
           }}>
@@ -141,8 +152,13 @@ const InspectionOverview = () => {
               {/* Property Details Section */}
               <Box sx={{ mb: 4 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
-                  <CheckCircleIcon sx={{ color: '#4CAF50' }} />
-                  <Typography variant="h6" sx={{ color: 'white', fontWeight: 'bold' }}>
+                  <Box
+                    component="img"
+                    src={checkIcon}
+                    alt="Check"
+                    sx={{ width: 16, height: 16 }}
+                  />
+                  <Typography variant="h8" sx={{ color: 'white', fontWeight: 'bold' }}>
                     PROPERTY DETAILS
                   </Typography>
                 </Box>
@@ -166,8 +182,13 @@ const InspectionOverview = () => {
               {/* Property Address Section */}
               <Box sx={{ mb: 4 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
-                  <CheckCircleIcon sx={{ color: '#4CAF50' }} />
-                  <Typography variant="h6" sx={{ color: 'white', fontWeight: 'bold' }}>
+                  <Box
+                    component="img"
+                    src={checkIcon}
+                    alt="Check"
+                    sx={{ width: 16, height: 16 }}
+                  />
+                  <Typography variant="h8" sx={{ color: 'white', fontWeight: 'bold' }}>
                     PROPERTY ADDRESS
                   </Typography>
                 </Box>
@@ -182,7 +203,12 @@ const InspectionOverview = () => {
                 <Box sx={{ display: 'flex', mb: 2 }}>
                   <Box sx={{ flex: 1 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-                      <CheckCircleIcon sx={{ color: '#4CAF50' }} />
+                      <Box
+                        component="img"
+                        src={checkIcon}
+                        alt="Check"
+                        sx={{ width: 16, height: 16 }}
+                      />
                       <Typography sx={{ color: 'white', fontWeight: 'bold' }}>
                         CHECKED FOR
                       </Typography>
@@ -193,7 +219,12 @@ const InspectionOverview = () => {
                   </Box>
                   <Box sx={{ flex: 1 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-                      <CheckCircleIcon sx={{ color: '#4CAF50' }} />
+                      <Box
+                        component="img"
+                        src={checkIcon}
+                        alt="Check"
+                        sx={{ width: 16, height: 16 }}
+                      />
                       <Typography sx={{ color: 'white', fontWeight: 'bold' }}>
                         CHECK NO
                       </Typography>
@@ -208,7 +239,12 @@ const InspectionOverview = () => {
                 <Box sx={{ display: 'flex', mb: 2 }}>
                   <Box sx={{ flex: 1 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-                      <CheckCircleIcon sx={{ color: '#4CAF50' }} />
+                      <Box
+                        component="img"
+                        src={checkIcon}
+                        alt="Check"
+                        sx={{ width: 16, height: 16 }}
+                      />
                       <Typography sx={{ color: 'white', fontWeight: 'bold' }}>
                         CHECK DATE
                       </Typography>
@@ -219,7 +255,12 @@ const InspectionOverview = () => {
                   </Box>
                   <Box sx={{ flex: 1 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-                      <CheckCircleIcon sx={{ color: '#4CAF50' }} />
+                      <Box
+                        component="img"
+                        src={checkIcon}
+                        alt="Check"
+                        sx={{ width: 16, height: 16 }}
+                      />
                       <Typography sx={{ color: 'white', fontWeight: 'bold' }}>
                         CHECK HERO
                       </Typography>
@@ -233,7 +274,12 @@ const InspectionOverview = () => {
                 {/* Verified By Row */}
                 <Box>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-                    <CheckCircleIcon sx={{ color: '#4CAF50' }} />
+                    <Box
+                      component="img"
+                      src={checkIcon}
+                      alt="Check"
+                      sx={{ width: 16, height: 16 }}
+                    />
                     <Typography sx={{ color: 'white', fontWeight: 'bold' }}>
                       VERIFIED BY
                     </Typography>
@@ -243,6 +289,176 @@ const InspectionOverview = () => {
                   </Typography>
                 </Box>
               </Box>
+            </Box>
+          </Box>
+        </Grid>
+
+        {/* Add this after your existing content (after TILE & GROUT section) */}
+        <Grid item xs={12}>
+          <Box sx={{ mt: 4 }}>
+            {/* Title and Search Bar Container */}
+            <Box sx={{ 
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              mb: 2
+            }}>
+              <Typography sx={{ 
+                color: 'white', 
+                fontSize: '1rem', 
+                fontWeight: 'bold',
+              }}>
+                HIGH PRIORITY ISSUES
+              </Typography>
+
+             
+            </Box>
+
+            {/* Scrollable Options */}
+            <Box sx={{ 
+              overflowX: 'auto',
+              WebkitOverflowScrolling: 'touch',
+              '&::-webkit-scrollbar': { display: 'none' },
+              msOverflowStyle: 'none',
+              scrollbarWidth: 'none',
+              mb: 2,
+            }}>
+              <Box sx={{ 
+                display: 'flex',
+                gap: 3,
+                whiteSpace: 'nowrap',
+              }}>
+                {[
+                  'All',
+                  'Premium',
+                  'Mortgages',
+                  'Interior Design',
+                  'Removals',
+                  'Storage',
+                  'Furniture',
+                  'Renovation',
+                  'Brokers',
+                  'Coffee',
+                  'Waterproofing'
+                ].map((option) => (
+                  <Box
+                    key={option}
+                    sx={{
+                      color: option === 'All' ? '#F5F5F5' : '#686866',
+                      fontSize: '1rem',
+                      cursor: 'pointer',
+                      position: 'relative',
+                      pb: 1,
+                      '&:after': option === 'All' ? {
+                        content: '""',
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '2px',
+                        backgroundColor: '#01B750'
+                      } : {}
+                    }}
+                  >
+                    {option}
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+             {/* Search Bar */}
+             <Box sx={{ 
+                display: 'flex',
+                alignItems: 'center',
+                backgroundColor: '#383838',
+                border: '1px solid #4F4F4F',
+                borderRadius: '100px',
+                px: 2,
+                py: 1,
+                width: '300px',
+              }}>
+                <Box
+                  component="img"
+                  src={starIcon}
+                  alt="Search"
+                  sx={{ width: 20, height: 20, mr: 1 }}
+                />
+                <input
+                  type="text"
+                  placeholder="Search Here"
+                  style={{
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                    color: 'white',
+                    outline: 'none',
+                    width: '100%',
+                    fontSize: '1rem',
+                  }}
+                />
+              </Box>
+          </Box>
+        </Grid>
+
+        {/* Cards Section */}
+        <Grid item xs={12}>
+          <Box sx={{ mt: 4 }}>
+            {/* Cards Container */}
+            <Box sx={{ 
+              display: 'grid',
+              gridTemplateColumns: {
+                xs: '1fr',
+                sm: '1fr 1fr',
+                md: '1fr 1fr 1fr'
+              },
+              gap: 3,
+              mb: 3
+            }}>
+              {[1, 2, 3].map((item) => (
+                <ElectricIssueCard
+                  key={item}
+                  image={electricImage}
+                  isHighPriority={true}
+                />
+              ))}
+            </Box>
+
+            {/* Navigation Buttons */}
+            <Box sx={{ 
+              display: 'flex',
+              justifyContent: 'space-between',
+              mt: 3
+            }}>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: '#008138',
+                  color: 'white',
+                  textTransform: 'none',
+                  px: 4,
+                  py: 1,
+                  borderRadius: 1,
+                  '&:hover': {
+                    backgroundColor: '#006c2f'
+                  }
+                }}
+              >
+                Previous
+              </Button>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: '#008138',
+                  color: 'white',
+                  textTransform: 'none',
+                  px: 4,
+                  py: 1,
+                  borderRadius: 1,
+                  '&:hover': {
+                    backgroundColor: '#006c2f'
+                  }
+                }}
+              >
+                Next
+              </Button>
             </Box>
           </Box>
         </Grid>
